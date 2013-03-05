@@ -5,12 +5,20 @@ data!).
 
 ### Usage
 
-Use in your test suite when you can't use other gems like database cleaner that
-want AR.
+Use in your test suite when you can't use other gems like
+[database cleaner](https://github.com/bmabey/database_cleaner) that want AR.
+
+Have a look at `./scripts/demo_script.rb` for a simple demo.
+
+### Dependencies
+
+Currently only supports [mysql2](https://github.com/brianmario/mysql2) wrapper.
+Additions welcome!
 
 ### TODO
 
-Make into a gem.
+- Make into a gem.
+- Add other adapters.
 
 ### License
 
