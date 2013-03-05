@@ -1,4 +1,4 @@
-## Database Manager
+## Mr. Clean
 
 A quick utility to ensure that a database and tables exist and are clean (ie. no
 data!).
@@ -17,8 +17,9 @@ Additions welcome!
 
 ### TODO
 
-- Make into a gem.
+- Add test suite (shame on me for not having this in place).
 - Add other adapters.
+- Make into a gem.
 
 ### License
 

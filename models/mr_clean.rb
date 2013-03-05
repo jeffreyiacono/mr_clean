@@ -1,4 +1,4 @@
-class DatabaseManager
+class MrClean
   attr_accessor :connection, :database, :create_table_schemas
 
   def initialize attrs = {}
