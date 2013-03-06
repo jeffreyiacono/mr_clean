@@ -8,8 +8,8 @@ class MrClean
     yield self if block_given?
   end
 
-  def ensure_clean_database!
-    clean_database!
+  def ensure_clean_database! opts = {}
+    clean_database! !!opts[:teardown_tables]
     ensure_tables!
   end
 
@@ -25,10 +25,14 @@ private
     @connection.query "create database if not exists #{@database}"
   end
 
-  def clean_database!
+  def clean_database! teardown_tables
     return unless database_exists?
     @connection.query("show tables in #{@database}").to_a.each do |table|
-      @connection.query("truncate #{@database}.#{table["Tables_in_#{@database}"]}")
+      if teardown_tables
+        @connection.query("drop table if exists #{@database}.#{table["Tables_in_#{@database}"]}")
+      else
+        @connection.query("truncate #{@database}.#{table["Tables_in_#{@database}"]}")
+      end
     end
   end
 
