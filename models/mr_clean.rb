@@ -5,7 +5,7 @@ class MrClean
     @connection           = attrs[:connection]
     @database             = attrs[:database]
     @create_table_schemas = attrs[:create_table_schemas] || []
-    yield self
+    yield self if block_given?
   end
 
   def ensure_clean_database!
